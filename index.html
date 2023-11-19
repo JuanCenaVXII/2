@@ -1,8 +1,57 @@
-jaavascript=<script>
-function turnofftheLights() {
-document getElementById
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Manipulate String</title>
+</head>
+<body>
+	<label for="string">Enter a string:</label>
+	<input type="text" id="string" name="string"><br><br>
+	<label for="add">Add a character:</label>
+	<input type="text" id="add" name="add">
+	<button onclick="addChar()">Add</button><br><br>
+	<label for="delete">Delete a character:</label>
+	<input type="text" id="delete" name="delete">
+	<button onclick="deleteChar()">Delete</button><br><br>
+	<label for="addMiddle">Add to the middle:</label>
+	<input type="text" id="addMiddle" name="addMiddle">
+	<button onclick="addMiddle()">Add</button><br><br>
+	<label for="deleteMiddle">Delete from the middle:</label>
+	<input type="text" id="deleteMiddle" name="deleteMiddle">
+	<button onclick="deleteMiddle()">Delete</button><br><br>
+	<label for="result">Result:</label>
+	<label id="result"></label>
+	<script>
+		var string = document.getElementById("string");
+		var add = document.getElementById("add");
+		var deleteChar = document.getElementById("delete");
+		var addMiddle = document.getElementById("addMiddle");
+		var deleteMiddle = document.getElementById("deleteMiddle");
+		var result = document.getElementById("result");
 
-}
+		function addChar() {
+			string.value += add.value;
+			result.innerHTML = string.value;
+		}
+
+		function deleteChar() {
+			string.value = string.value.slice(0, -1);
+			result.innerHTML = string.value;
+		}
+
+		function addMiddle() {
+			var position = Math.floor(string.value.length / 2);
+			string.value = string.value.slice(0, position) + addMiddle.value + string.value.slice(position);
+			result.innerHTML = string.value;
+		}
+
+		function deleteMiddle() {
+			var position = Math.floor(string.value.length / 2);
+			string.value = string.value.slice(0, position - 1) + string.value.slice(position);
+			result.innerHTML = string.value;
+		}
+	</script>
+</body>
+</html>
   
   
 
@@ -29,4 +78,3 @@ document getElementById
 
 
   
-</script>
